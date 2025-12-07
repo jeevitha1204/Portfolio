@@ -1,8 +1,5 @@
-"use client"
-
 import { Badge } from "@/components/ui/badge"
 import { Code, Database, BarChart3, Wrench, Users } from "lucide-react"
-import { AnimatedSection } from "./animated-section"
 
 const skillCategories = [
   {
@@ -56,64 +53,59 @@ export function Skills() {
       <div className="space-y-8">
         {/* Technical Skills Grid */}
         <div>
-          <AnimatedSection>
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-foreground">Technical Arsenal</h3>
-          </AnimatedSection>
+          <h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-foreground">Technical Arsenal</h3>
           <div className="grid gap-4 sm:grid-cols-2">
-            {skillCategories.map((category, index) => (
-              <AnimatedSection key={category.title} delay={index * 100}>
-                <div className="group rounded-lg border border-border bg-card/50 p-4 transition-all hover:border-primary/50 hover:bg-card hover-lift card-glow">
-                  <div className="mb-3 flex items-center gap-2">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:animate-pulse-glow">
-                      <category.icon className="h-4 w-4" />
-                    </div>
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      {category.title}
-                    </h4>
+            {skillCategories.map((category) => (
+              <div
+                key={category.title}
+                className="group rounded-lg border border-border bg-card/50 p-4 transition-all hover:border-primary/50 hover:bg-card"
+              >
+                <div className="mb-3 flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <category.icon className="h-4 w-4" />
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="bg-primary/10 text-primary hover:bg-primary/20 transition-all hover:scale-105"
-                        style={{ animationDelay: `${skillIndex * 50}ms` }}
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {category.title}
+                  </h4>
                 </div>
-              </AnimatedSection>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <Badge
+                      key={skill}
+                      variant="secondary"
+                      className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Soft Skills */}
-        <AnimatedSection delay={600}>
-          <div>
-            <h3 className="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground">
-              <Users className="h-4 w-4" />
-              Soft Skills
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {softSkills.map((skill, index) => (
-                <Badge
-                  key={skill.name}
-                  variant="outline"
-                  className={`transition-all hover:scale-105 ${
-                    skill.highlight
-                      ? "border-primary/50 text-primary hover:bg-primary/10"
-                      : "border-muted-foreground/30 text-muted-foreground hover:border-primary hover:text-primary"
-                  }`}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  {skill.name}
-                </Badge>
-              ))}
-            </div>
+        <div>
+          <h3 className="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground">
+            <Users className="h-4 w-4" />
+            Soft Skills
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {softSkills.map((skill) => (
+              <Badge
+                key={skill.name}
+                variant="outline"
+                className={
+                  skill.highlight
+                    ? "border-primary/50 text-primary hover:bg-primary/10"
+                    : "border-muted-foreground/30 text-muted-foreground hover:border-primary hover:text-primary"
+                }
+              >
+                {skill.name}
+              </Badge>
+            ))}
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   )

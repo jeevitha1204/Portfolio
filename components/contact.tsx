@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Mail, Send, Linkedin, Github, Phone } from "lucide-react"
-import { AnimatedSection } from "./animated-section"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -31,90 +30,94 @@ export function Contact() {
       </div>
 
       <div className="space-y-8">
-        <AnimatedSection>
-          <div>
-            <h3 className="text-lg font-medium text-foreground">Get In Touch</h3>
-            <p className="mt-2 text-muted-foreground">
-              I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi,
-              I&apos;ll try my best to get back to you!
-            </p>
-          </div>
-        </AnimatedSection>
+        <div>
+          <h3 className="text-lg font-medium text-foreground">Get In Touch</h3>
+          <p className="mt-2 text-muted-foreground">
+            I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi,
+            I&apos;ll try my best to get back to you!
+          </p>
+        </div>
 
-        <AnimatedSection delay={100}>
-          <div className="flex flex-wrap gap-4">
-            {[
-              { href: "mailto:jeevithareddy1244@gmail.com", icon: Mail, label: "Email" },
-              { href: "tel:+918296849449", icon: Phone, label: "Call" },
-              {
-                href: "https://www.linkedin.com/in/jeevitha-s-948b60266",
-                icon: Linkedin,
-                label: "LinkedIn",
-                external: true,
-              },
-              { href: "https://github.com", icon: Github, label: "GitHub", external: true },
-            ].map((link, index) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-2 rounded-lg border border-border bg-card/50 px-4 py-2 text-sm text-muted-foreground transition-all hover:border-primary hover:text-primary hover-lift group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <link.icon className="h-4 w-4 transition-transform group-hover:scale-110" />
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </AnimatedSection>
+        {/* Contact Links */}
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="mailto:jeevithareddy1244@gmail.com"
+            className="flex items-center gap-2 rounded-lg border border-border bg-card/50 px-4 py-2 text-sm text-muted-foreground transition-all hover:border-primary hover:text-primary"
+          >
+            <Mail className="h-4 w-4" />
+            Email
+          </a>
+          <a
+            href="tel:+918296849449"
+            className="flex items-center gap-2 rounded-lg border border-border bg-card/50 px-4 py-2 text-sm text-muted-foreground transition-all hover:border-primary hover:text-primary"
+          >
+            <Phone className="h-4 w-4" />
+            Call
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jeevitha-s-948b60266"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-lg border border-border bg-card/50 px-4 py-2 text-sm text-muted-foreground transition-all hover:border-primary hover:text-primary"
+          >
+            <Linkedin className="h-4 w-4" />
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-lg border border-border bg-card/50 px-4 py-2 text-sm text-muted-foreground transition-all hover:border-primary hover:text-primary"
+          >
+            <Github className="h-4 w-4" />
+            GitHub
+          </a>
+        </div>
 
-        {/* Contact Form with animations */}
-        <AnimatedSection delay={200}>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  className="bg-card/50 border-border focus:border-primary transition-all"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  className="bg-card/50 border-border focus:border-primary transition-all"
-                />
-              </div>
-            </div>
+        {/* Contact Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
-              <Textarea
-                id="message"
-                placeholder="Your message..."
-                rows={5}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              <Label htmlFor="name">Name</Label>
+              <Input
+                id="name"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="bg-card/50 border-border focus:border-primary resize-none transition-all"
+                className="bg-card/50 border-border focus:border-primary"
               />
             </div>
-            <Button type="submit" className="gap-2 hover-lift group">
-              <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              Send Message
-            </Button>
-          </form>
-        </AnimatedSection>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                className="bg-card/50 border-border focus:border-primary"
+              />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="message">Message</Label>
+            <Textarea
+              id="message"
+              placeholder="Your message..."
+              rows={5}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              required
+              className="bg-card/50 border-border focus:border-primary resize-none"
+            />
+          </div>
+          <Button type="submit" className="gap-2">
+            <Send className="h-4 w-4" />
+            Send Message
+          </Button>
+        </form>
       </div>
     </section>
   )

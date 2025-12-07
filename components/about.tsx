@@ -1,7 +1,3 @@
-"use client"
-
-import { AnimatedSection } from "./animated-section"
-
 export function About() {
   return (
     <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
@@ -10,38 +6,30 @@ export function About() {
       </div>
 
       <div className="space-y-4 text-muted-foreground">
-        <AnimatedSection delay={0}>
-          <p className="text-lg">
-            I&apos;m a passionate <span className="text-foreground font-semibold">Data Enthusiast</span> who loves
-            turning raw data into meaningful insights and building solutions that make an impact.
-          </p>
-        </AnimatedSection>
+        <p className="text-lg">
+          I&apos;m a passionate <span className="text-foreground font-semibold">Data Enthusiast</span> who loves turning
+          raw data into meaningful insights and building solutions that make an impact.
+        </p>
 
-        <AnimatedSection delay={100}>
-          <p>
-            My passion lies in the art of <span className="text-foreground font-medium">data storytelling</span> —
-            uncovering hidden patterns, building predictive models, and creating visualizations that communicate
-            insights effectively.
-          </p>
-        </AnimatedSection>
+        <p>
+          My passion lies in the art of <span className="text-foreground font-medium">data storytelling</span> —
+          uncovering hidden patterns, building predictive models, and creating visualizations that communicate insights
+          effectively.
+        </p>
 
-        <AnimatedSection delay={200}>
-          <p>
-            With expertise in <span className="text-primary">Python</span>, <span className="text-primary">SQL</span>,
-            <span className="text-primary"> Snowflake</span>, <span className="text-primary">Tableau</span>, and{" "}
-            <span className="text-primary">Power BI</span>, I specialize in building end-to-end data pipelines, crafting
-            interactive dashboards, and developing machine learning models that solve real-world problems.
-          </p>
-        </AnimatedSection>
+        <p>
+          With expertise in <span className="text-primary">Python</span>, <span className="text-primary">SQL</span>,
+          <span className="text-primary">Snowflake</span>, <span className="text-primary">Tableau</span>, and{" "}
+          <span className="text-primary">Power BI</span>, I specialize in building end-to-end data pipelines, crafting
+          interactive dashboards, and developing machine learning models that solve real-world problems.
+        </p>
 
-        <AnimatedSection delay={300}>
-          <p>
-            As a <span className="text-foreground font-medium">Board Member of the Data Analytics Club</span>, I&apos;m
-            passionate about sharing knowledge and fostering a data-driven culture. When I&apos;m not analyzing datasets
-            or fine-tuning ML models, you&apos;ll find me exploring the latest in AI/ML research or building innovative
-            solutions like wellness apps with blockchain integration.
-          </p>
-        </AnimatedSection>
+        <p>
+          As a <span className="text-foreground font-medium">Board Member of the Data Analytics Club</span>, I&apos;m
+          passionate about sharing knowledge and fostering a data-driven culture. When I&apos;m not analyzing datasets
+          or fine-tuning ML models, you&apos;ll find me exploring the latest in AI/ML research or building innovative
+          solutions like wellness apps with blockchain integration.
+        </p>
       </div>
     </section>
   )

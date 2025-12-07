@@ -1,8 +1,5 @@
-"use client"
-
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Award, CheckCircle } from "lucide-react"
-import { AnimatedSection } from "./animated-section"
 
 const certifications = [
   {
@@ -50,54 +47,50 @@ export function Certifications() {
       </div>
 
       {/* Certification count badge */}
-      <AnimatedSection>
-        <div className="mb-6 flex items-center gap-2">
-          <Badge variant="outline" className="border-primary/50 text-primary">
-            <CheckCircle className="mr-1 h-3 w-3" />
-            {certifications.length} Professional Certifications
-          </Badge>
-        </div>
-      </AnimatedSection>
+      <div className="mb-6 flex items-center gap-2">
+        <Badge variant="outline" className="border-primary/50 text-primary">
+          <CheckCircle className="mr-1 h-3 w-3" />
+          {certifications.length} Professional Certifications
+        </Badge>
+      </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         {certifications.map((cert, index) => (
-          <AnimatedSection key={index} delay={index * 100} direction="scale">
-            <div
-              className={`group rounded-lg border bg-gradient-to-br ${cert.color} ${cert.borderColor} p-4 transition-all duration-300 hover:shadow-lg hover-lift`}
-            >
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background/50 text-primary backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                    <Award className="h-5 w-5" />
-                  </div>
+          <div
+            key={index}
+            className={`group rounded-lg border bg-gradient-to-br ${cert.color} ${cert.borderColor} p-4 transition-all hover:shadow-lg`}
+          >
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background/50 text-primary backdrop-blur">
+                  <Award className="h-5 w-5" />
                 </div>
+              </div>
 
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
-                    <span className="inline-flex items-center gap-1">
-                      {cert.title}
-                      <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 flex-shrink-0" />
-                    </span>
-                  </h3>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
+                  <span className="inline-flex items-center gap-1">
+                    {cert.title}
+                    <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                  </span>
+                </h3>
 
-                  <p className="mt-1 text-sm font-medium text-primary">{cert.issuer}</p>
+                <p className="mt-1 text-sm font-medium text-primary">{cert.issuer}</p>
 
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {cert.skills.map((skill, skillIndex) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="bg-background/50 text-muted-foreground text-xs backdrop-blur transition-all hover:scale-105"
-                        style={{ animationDelay: `${skillIndex * 50}ms` }}
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {cert.skills.map((skill) => (
+                    <Badge
+                      key={skill}
+                      variant="secondary"
+                      className="bg-background/50 text-muted-foreground text-xs backdrop-blur"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
                 </div>
               </div>
             </div>
-          </AnimatedSection>
+          </div>
         ))}
       </div>
     </section>

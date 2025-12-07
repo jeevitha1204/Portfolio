@@ -1,7 +1,4 @@
-"use client"
-
 import { GraduationCap, Award, Trophy } from "lucide-react"
-import { AnimatedSection } from "./animated-section"
 
 const education = [
   {
@@ -47,81 +44,70 @@ export function Education() {
       <div className="space-y-12">
         {/* Education */}
         <div>
-          <AnimatedSection>
-            <h3 className="mb-6 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground">
-              <GraduationCap className="h-4 w-4" />
-              Education
-            </h3>
-          </AnimatedSection>
+          <h3 className="mb-6 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground">
+            <GraduationCap className="h-4 w-4" />
+            Education
+          </h3>
 
           <div className="relative border-l-2 border-primary/30 pl-6">
             {education.map((edu, index) => (
-              <AnimatedSection key={index} delay={index * 150} direction="left">
-                <div className="relative mb-8 last:mb-0">
-                  <div
-                    className={`absolute -left-[29px] h-4 w-4 rounded-full border-2 transition-all duration-300 ${
-                      edu.isCurrent
-                        ? "border-primary bg-primary shadow-lg shadow-primary/50 animate-pulse"
-                        : "border-muted-foreground bg-background hover:border-primary hover:bg-primary/20"
-                    }`}
-                  />
+              <div key={index} className="relative mb-8 last:mb-0">
+                <div
+                  className={`absolute -left-[29px] h-4 w-4 rounded-full border-2 ${
+                    edu.isCurrent
+                      ? "border-primary bg-primary shadow-lg shadow-primary/50"
+                      : "border-muted-foreground bg-background"
+                  }`}
+                />
 
-                  <div className="group rounded-lg p-4 transition-all hover:bg-card/50 hover-lift">
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                      <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {edu.institution}
-                      </h4>
-                      <span className="text-xs text-muted-foreground">{edu.period}</span>
-                    </div>
-                    <p className="mt-1 text-sm text-muted-foreground">{edu.degree}</p>
+                <div className="group rounded-lg p-4 transition-all hover:bg-card/50">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                    <h4 className="font-semibold text-foreground">{edu.institution}</h4>
+                    <span className="text-xs text-muted-foreground">{edu.period}</span>
                   </div>
+                  <p className="mt-1 text-sm text-muted-foreground">{edu.degree}</p>
                 </div>
-              </AnimatedSection>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Achievements */}
         <div>
-          <AnimatedSection>
-            <h3 className="mb-6 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground">
-              <Award className="h-4 w-4" />
-              Achievements
-            </h3>
-          </AnimatedSection>
+          <h3 className="mb-6 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground">
+            <Award className="h-4 w-4" />
+            Achievements
+          </h3>
 
           <div className="space-y-4">
             {achievements.map((achievement, index) => (
-              <AnimatedSection key={index} delay={index * 150}>
-                <div
-                  className={`group rounded-lg border p-5 transition-all duration-300 hover:shadow-lg hover-lift ${
-                    achievement.highlight
-                      ? "border-primary/30 bg-gradient-to-br from-primary/10 to-transparent hover:border-primary/50"
-                      : "border-border bg-card/50 hover:border-primary/50 hover:bg-card"
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div
-                      className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg transition-all duration-300 group-hover:scale-110 ${
-                        achievement.highlight
-                          ? "bg-primary/20 text-primary group-hover:animate-pulse-glow"
-                          : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
-                      }`}
-                    >
-                      <achievement.icon className="h-5 w-5" />
+              <div
+                key={index}
+                className={`group rounded-lg border p-5 transition-all hover:shadow-lg ${
+                  achievement.highlight
+                    ? "border-primary/30 bg-gradient-to-br from-primary/10 to-transparent hover:border-primary/50"
+                    : "border-border bg-card/50 hover:border-primary/50 hover:bg-card"
+                }`}
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg ${
+                      achievement.highlight ? "bg-primary/20 text-primary" : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    <achievement.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                      <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {achievement.title}
+                      </h4>
+                      <span className="text-xs text-muted-foreground">{achievement.period}</span>
                     </div>
-                    <div>
-                      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                        <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                          {achievement.title}
-                        </h4>
-                        <span className="text-xs text-muted-foreground">{achievement.period}</span>
-                      </div>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{achievement.description}</p>
-                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{achievement.description}</p>
                   </div>
                 </div>
-              </AnimatedSection>
+              </div>
             ))}
           </div>
         </div>
