@@ -6,7 +6,7 @@ export function About() {
       </div>
 
       <div className="space-y-4 text-muted-foreground">
-        <p className="text-lg">
+        <p>
           I&apos;m a passionate <span className="text-foreground font-semibold">Data Enthusiast</span> who loves turning
           raw data into meaningful insights and building solutions that make an impact.
         </p>
