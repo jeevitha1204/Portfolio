@@ -1,6 +1,5 @@
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
-import { Experience } from "@/components/experience"
 import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
 import { Education } from "@/components/education"
@@ -16,7 +15,7 @@ export default function Home() {
       <div
         className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"
         style={{
-          background: "radial-gradient(600px at 50% 200px, rgba(56, 189, 248, 0.1), transparent 80%)",
+          background: "radial-gradient(600px at 50% 200px, rgba(94, 234, 212, 0.1), transparent 80%)",
         }}
       />
 
@@ -32,7 +31,6 @@ export default function Home() {
           {/* Right column - scrollable content */}
           <div className="pt-24 lg:w-1/2 lg:py-24">
             <About />
-            <Experience />
             <Skills />
             <Projects />
             <Education />
